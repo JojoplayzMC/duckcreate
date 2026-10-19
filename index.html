@@ -13,7 +13,7 @@
     <!-- Top Navigation Menu Bar -->
     <header class="navbar">
         <div class="nav-container">
-            <div class="nav-brand">DuckCreate</div>
+            <div class="nav-brand" data-page="home">DuckCreate</div>
             <nav class="nav-links">
                 <button class="nav-link active" data-page="home">Home</button>
                 <button class="nav-link" data-page="trains">Trains</button>
@@ -27,7 +27,7 @@
     <!-- Main Content Container (SPA Pages) -->
     <main class="main-content">
         <!-- Home Page -->
-        <section id="page-home" class="page active" style="background-image: url('static/homebg.jpg');">
+        <section id="page-home" class="page active" style="background-image: url('static/homebg.webp');">
             <div class="hero-overlay">
                 <div class="hero-content">
                     <h1 class="server-title">DuckCreate</h1>
@@ -57,7 +57,7 @@
                             <span class="badge badge-free">Free</span>
                             <h3>Downtown Line</h3>
                             <p>Connects all major city hubs and downtown districts seamlessly with automated MTR trains.</p>
-                            <button class="btn btn-primary" onclick="openModal('base-request-modal')">Get your base requested</button>
+                            <button class="btn btn-primary" onclick="openModal('base-request-modal')">Request a place</button>
                         </div>
                     </div>
 
@@ -67,10 +67,10 @@
                             <img src="static/cwl.png" alt="Cross World Line" onerror="this.src='https://via.placeholder.com/600x350/005ec4/ffffff?text=Cross+World+Line+(cwl.png)'">
                         </div>
                         <div class="card-body">
-                            <span class="badge badge-paid">Paid</span>
+                            <span class="badge badge-wip">Work In Progress</span>
                             <h3>Cross World Line</h3>
                             <p>Travel thousands of blocks at blazing fast speeds up to 300km/hr across remote territories.</p>
-                            <button class="btn btn-primary" onclick="openModal('base-request-modal')">Get your base requested</button>
+                            <button class="btn btn-primary" onclick="openModal('base-request-modal')">Request a place</button>
                         </div>
                     </div>
                 </div>
@@ -84,7 +84,7 @@
                 <div class="coming-soon-card card">
                     <div class="card-body text-center">
                         <h3>Planes</h3>
-                        <p class="coming-soon-text">Coming soon! Take to the skies with advanced aeronautics mods.</p>
+                        <p class="coming-soon-text">Coming soon!</p>
                     </div>
                 </div>
             </div>
@@ -101,6 +101,7 @@
                             <li><span class="rule-icon">❌</span> No hacking</li>
                             <li><span class="rule-icon">❌</span> No spawn camping</li>
                             <li><span class="rule-icon">❌</span> No stealing</li>
+                            <li><span class="rule-icon">❌</span> No completely unjustified murder</li>
                             <li><span class="rule-icon">⚠️</span> Don't be annoying</li>
                             <li><span class="rule-icon">✅</span> All bugs and glitches + xray allowed</li>
                         </ul>
@@ -121,10 +122,11 @@
                     <div class="card">
                         <div class="card-body">
                             <h3>Download Modpack</h3>
-                            <p>Get the complete optimized client modpack containing Create, MTR, and performance mods.</p>
+                            <p>The modpack is required to join the server. The ZIP is recommended for all launchers other than Modrinth.</p>
                             <div class="modpack-buttons">
-                                <a href="#" class="btn btn-primary" download>Download .mrpack</a>
-                                <a href="#" class="btn btn-secondary" target="_blank" rel="noopener">CurseForge Zip</a>
+                                <a href="static/duckcreate.zip" class="btn btn-primary" target="_blank" rel="noopener" download>Download ZIP</a>
+                                <a href="static/duckcreate.mrpack" class="btn btn-secondary" download>Download MRPACK</a>
+                                <button class="btn btn-secondary" data-page="howto">How to?</button>
                             </div>
                         </div>
                     </div>
@@ -140,6 +142,89 @@
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Howto Page -->
+        <section id="page-howto" class="page">
+            <div class="container">
+                <h2 class="page-title">How to Install the Modpack</h2>
+                <div class="cards-grid">
+                    
+                    <!-- Prism Launcher -->
+                    <div class="card full-width-card">
+                        <div class="card-body">
+                            <h3>Prism Launcher <span class="badge-recommended">Recommended</span></h3>
+                            <ol class="steps-list">
+                                <li>Visit the <a href="https://prismlauncher.org/download/windows/" target="_blank" rel="noopener" class="inline-link">Prism Launcher download page</a> and download the installer.</li>
+                                <li>Run the file and install the program.</li>
+                                <li>Sign into your Minecraft account in the launcher.</li>
+                                <li>Download the DuckCreate <a href="static/duckcreate.mrpack" download class="inline-link">.mrpack file</a>.</li>
+                                <li>Open Prism Launcher and click <strong>Add Instance</strong> &gt; <strong>Import</strong> &gt; <strong>Browse</strong>.</li>
+                                <li>In the file selector, select <strong>duckcreate.mrpack</strong> from your Downloads folder and click <strong>OK</strong>.</li>
+                                <li>Check <em>"I trust this modpack and wish to proceed regardless"</em> and press <strong>OK</strong> (This appears because we include custom verification mods not hosted on CurseForge/Modrinth).</li>
+                                <li>Press <strong>OK</strong> if another window appears and wait for the modpack to finish downloading.</li>
+                                <li>Double-click the <strong>DuckCreate</strong> instance to launch!</li>
+                            </ol>
+                            <div class="troubleshoot-box">
+                                <strong>Troubleshooting:</strong> If your game fails to launch and opens a log window: Click <strong>Settings</strong> on the left panel &gt; <strong>Java</strong> tab &gt; click <strong>Detect</strong> and select <strong>Java 21</strong> or higher. Check <em>"Skip Java compatibility checks"</em> and press close.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Modrinth App -->
+                    <div class="card full-width-card">
+                        <div class="card-body">
+                            <h3>Modrinth App</h3>
+                            <ol class="steps-list">
+                                <li>Download and install the <a href="https://modrinth.com/app" target="_blank" rel="noopener" class="inline-link">Modrinth App</a>.</li>
+                                <li>Download the DuckCreate <a href="static/duckcreate.mrpack" download class="inline-link">.mrpack file</a>.</li>
+                                <li>Open the Modrinth App and click the <strong>+ (Plus)</strong> icon in the bottom-left corner to add an instance.</li>
+                                <li>Select <strong>From File</strong> or <strong>Import from file</strong>.</li>
+                                <li>Select the downloaded <strong>duckcreate.mrpack</strong> file and click <strong>Create</strong>.</li>
+                                <li>Wait for the assets and mods to finish downloading.</li>
+                                <li>Click on the profile card and hit <strong>Play</strong>.</li>
+                            </ol>
+                        </div>
+                    </div>
+
+                    <!-- CurseForge App -->
+                    <div class="card full-width-card">
+                        <div class="card-body">
+                            <h3>CurseForge Launcher</h3>
+                            <ol class="steps-list">
+                                <li>Download and install the <a href="https://curseforge.overwolf.com/" target="_blank" rel="noopener" class="inline-link">CurseForge App</a>.</li>
+                                <li>Download the DuckCreate <a href="static/duckcreate.zip" download class="inline-link">.zip file</a>.</li>
+                                <li>Open CurseForge and select <strong>Minecraft</strong> from the home dashboard.</li>
+                                <li>Click <strong>Create Custom Profile</strong> at the top.</li>
+                                <li>Click the <strong>Import</strong> link at the top of the creation popup.</li>
+                                <li>Select the downloaded <strong>duckcreate.zip</strong> file and click <strong>Open</strong>.</li>
+                                <li>CurseForge will create the instance and automatically install the required mods.</li>
+                                <li>Once finished, click <strong>Play</strong>.</li>
+                            </ol>
+                        </div>
+                    </div>
+
+                    <!-- Default Minecraft Launcher -->
+                    <div class="card full-width-card">
+                        <div class="card-body">
+                            <h3>Default Minecraft Launcher (Manual Install)</h3>
+                            <ol class="steps-list">
+                                <li>Download and install <a href="https://fabricmc.net/use/installer/" target="_blank" rel="noopener" class="inline-link">Fabric Installer</a> for Minecraft (make sure to select the correct Minecraft version used by DuckCreate).</li>
+                                <li>Run the Fabric installer and click <strong>Install</strong> to add the Fabric profile to your official launcher.</li>
+                                <li>Download the DuckCreate <a href="static/duckcreate.zip" download class="inline-link">.zip file</a> and extract its contents.</li>
+                                <li>Open the Run dialog by pressing <kbd>Win + R</kbd>, type <code>%appdata%\.minecraft</code>, and press <strong>Enter</strong>.</li>
+                                <li>Open the <code>mods</code> folder inside <code>.minecraft</code> (create the folder if it doesn't exist).</li>
+                                <li>Copy all mod <code>.jar</code> files from the extracted <code>duckcreate.zip</code> into your <code>.minecraft/mods</code> folder.</li>
+                                <li>Open the official Minecraft Launcher, select the <strong>Fabric Loader</strong> profile from the bottom left dropdown, and press <strong>Play</strong>.</li>
+                            </ol>
+                            <div class="troubleshoot-box">
+                                <strong>Note:</strong> Make sure Java 21 or higher is installed on your computer if you encounter launch errors with modern Minecraft versions.
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </section>
